@@ -1,0 +1,46 @@
+{
+  "modules": [
+    {
+      "name": "rhusb",
+      "loader": {
+        "name": "node",
+        "entrypoint": {
+          "main.path": "rhusb-rest.js"
+        }
+      },
+      "args": {
+        "hostname": "localhost",
+        "port": 4000,
+        "path": "/"
+      }
+    },
+    {
+      "name": "printer",
+      "loader": {
+        "name": "node",
+        "entrypoint": {
+          "main.path": "printer.js"
+        }
+      },
+      "args": {
+        "prepend": "printer.receive: "
+      }
+    },
+    {
+      "name": "iothub",
+      "loader": {
+        "name": "node",
+        "entrypoint": {
+          "main.path": "iothub.js"
+        }
+      },
+      "args": {
+        "connection_string": "YOUR_CONNECTION_STRING_HERE"
+      }
+    }
+  ],
+  "links": [
+    { "source": "rhusb", "sink": "printer" },
+    { "source": "rhusb", "sink": "iothub" }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "intel-gateway-azure-iot-edge",
+  "version": "1.0.0",
+  "description": "Azure IoT Edge application on Intel IoT Gateway",
+  "author": "Greg Toth",
+  "license": "MIT",
+  "dependencies": {
+    "azure-iot-device": "^1.1.14",
+    "azure-iot-device-amqp": "^1.1.14"
+  }
+}
